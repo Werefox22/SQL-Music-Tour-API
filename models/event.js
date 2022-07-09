@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  event.init({
+  Event.init({
     event_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -41,5 +41,5 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'events',
     timestamps: false
   });
-  return event;
+  return Event;
 };

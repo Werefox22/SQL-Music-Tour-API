@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  set_time.init({
+  Set_Time.init({
     event_id: {
       type: DataTypes.SMALLINT,
       allowNull: false
@@ -45,5 +45,5 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'set_times',
     timestamps: false
   });
-  return set_time;
+  return Set_Time;
 };

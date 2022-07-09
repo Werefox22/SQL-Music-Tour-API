@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  meet_greet.init({
+  Meet_Greet.init({
     event_id: {
       type: DataTypes.SMALLINT,
       allowNull: false
@@ -45,5 +45,5 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'meet_greets',
     timestamps: false
   });
-  return meet_greet;
+  return Meet_Greet;
 };
