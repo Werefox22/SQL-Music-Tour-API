@@ -51,4 +51,18 @@ bands.put('/:id', async (req, res) => {
 	}
 })
 
+// DELETE a band
+bands.delete('/:id', async (req, res) => {
+	try {
+		let deletedBands = await Band.destroy({
+			where: { band_id: req.params.id }
+		})
+		res.status(200).json({
+			message: `Successfully deleted ${deletedBands} band${deletedBands === 1 ? '' : 's'}`
+		})
+	} catch (error) {
+		res.status(500).json(error)
+	}
+})
+
 module.exports = bands
