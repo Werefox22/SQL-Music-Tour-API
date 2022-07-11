@@ -15,6 +15,9 @@ app.get('/', (req, res) => {
     })
 })
 
+const bandsController = require('./controllers/bands_controller.js')
+app.use('/bands', bandsController)
+
 // LISTEN
 app.listen(process.env.PORT, () => {
     console.log(`🎸 Rockin' on port: ${process.env.PORT}`)
