@@ -8,6 +8,9 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+const db = require('./models')
+db.sequelize.sync({ force: true })
+
 // ROOT
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -21,6 +24,7 @@ app.use('/bands', bandsController)
 const eventsController = require('./controllers/events_controller.js')
 app.use('/events', eventsController)
 const stagesController = require('./controllers/stages_controller.js')
+const { sequelize } = require('./models/index.js')
 app.use('/stages', stagesController)
 
 // LISTEN
