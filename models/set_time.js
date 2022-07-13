@@ -4,7 +4,7 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Set_Time extends Model {
-    static associate({ Band, Event }) {
+    static associate({ Band, Event, Stage }) {
       Set_Time.belongsTo(Band, {
         foreignKey: "band_id",
         as: "band"
@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       Set_Time.belongsTo(Event, {
         foreignKey: "event_id",
         as: "events"
+      })
+
+      Set_Time.belongsTo(Stage, {
+        foreignKey: "stage_id",
+        as: "stage"
       })
     }
   }

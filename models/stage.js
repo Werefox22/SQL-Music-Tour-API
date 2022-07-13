@@ -4,11 +4,16 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Stage extends Model {
-    static associate({ Event, Stage_Event}) {
+    static associate({ Event, Stage_Event, Set_Time}) {
       Stage.belongsToMany(Event, {
         foreignKey: "stage_id",
         as: "events",
         through: Stage_Event
+      })
+
+      Stage.hasMany(Set_Time, {
+        foreignKey: "stage_id",
+        as: "set_times"
       })
     }
   }
